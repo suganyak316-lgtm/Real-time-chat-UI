@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real-Time Chat UI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ChatSphere</h2>
+                <span class="status-container">
+                    <span id="connectionStatus" class="status-dot connected"></span>
+                    <span id="statusText">Connected</span>
+                </span>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search conversations...">
+            </div>
+
+            <div class="chat-list">
+
+                <div class="chat-item active">
+                    <img src="https://ui-avatars.com/api/?name=Alex&background=6c63ff&color=fff" alt="">
+                    <div>
+                        <h4>Alex</h4>
+                        <p>Typing...</p>
+                    </div>
+                </div>
+
+                <div class="chat-item">
+                    <img src="https://ui-avatars.com/api/?name=Emma&background=00b894&color=fff" alt="">
+                    <div>
+                        <h4>Emma</h4>
+                        <p>Last seen 2 min ago</p>
+                    </div>
+                </div>
+
+                <div class="chat-item">
+                    <img src="https://ui-avatars.com/api/?name=John&background=e17055&color=fff" alt="">
+                    <div>
+                        <h4>John</h4>
+                        <p>Online</p>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-area">
+
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=Alex&background=6c63ff&color=fff">
+                    <div>
+                        <h3>Alex</h3>
+                        <span id="headerStatus">Online</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Messages -->
+            <div id="chatContainer" class="chat-container">
+
+                <div id="messagesWrapper">
+
+                    <!-- Messages inserted by JS -->
+
+                </div>
+
+                <!-- Typing Indicator -->
+                <div id="typingIndicator" class="typing-indicator hidden">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Alex is typing...
+                </div>
+
+            </div>
+
+            <!-- Preview Area -->
+            <div id="previewArea" class="preview-area"></div>
+
+            <!-- Emoji Picker -->
+            <div id="emojiPicker" class="emoji-picker hidden">
+                <div class="emoji-grid"></div>
+            </div>
+
+            <!-- Slash Commands -->
+            <div id="commandPalette" class="command-palette hidden">
+                <div>/help</div>
+                <div>/clear</div>
+                <div>/theme</div>
+                <div>/dark</div>
+                <div>/light</div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-section">
+
+                <div class="tools">
+
+                    <button id="emojiBtn" title="Emoji">
+                        😀
+                    </button>
+
+                    <label for="fileInput" class="file-btn">
+                        📎
+                    </label>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        hidden
+                        multiple
+                    >
+
+                </div>
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Type a message..."
+                    maxlength="1000"
+                ></textarea>
+
+                <div class="input-footer">
+
+                    <span id="charCounter">
+                        0 / 1000
+                    </span>
+
+                    <button id="sendBtn">
+                        Send ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Notification Sound -->
+    <audio id="notifySound">
+        <source
+            src="https://www.soundjay.com/buttons/sounds/button-09.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
